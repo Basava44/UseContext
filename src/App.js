@@ -6,7 +6,8 @@ import "./App.css";
 import ChildComponent from "./ChildComponent";
 
 function App() {
-  const { theme, setLightTheme, setDarkTheme } = useContext(MyContext);
+  const { theme, setLightTheme, setDarkTheme, toggleTheme } =
+    useContext(MyContext);
 
   const styles = {
     textAlign: "right",
@@ -22,6 +23,7 @@ function App() {
       <button onClick={setDarkTheme} disabled={theme === "dark"}>
         Dark Theme
       </button>
+      <button onClick={toggleTheme}>Toggle Theme</button>
     </>
   );
 }

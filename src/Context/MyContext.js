@@ -15,8 +15,14 @@ export function ContextProvider({ children }) {
     setTheme("dark");
   };
 
+  const toggleTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   return (
-    <MyContext.Provider value={{ theme, setLightTheme, setDarkTheme }}>
+    <MyContext.Provider
+      value={{ theme, setLightTheme, setDarkTheme, toggleTheme }}
+    >
       {children}
     </MyContext.Provider>
   );
