@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+
+import MyContext from "./Context/MyContext";
+
+import "./App.css";
+import ChildComponent from "./ChildComponent";
 
 function App() {
+  const { theme, setLightTheme, setDarkTheme } = useContext(MyContext);
+
+  const styles = {
+    textAlign: "right",
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2 style={styles}>Theme Selected: {theme}</h2>
+      <ChildComponent />
+      <button onClick={setLightTheme} disabled={theme === "light"}>
+        Light Theme
+      </button>
+      <button onClick={setDarkTheme} disabled={theme === "dark"}>
+        Dark Theme
+      </button>
+    </>
   );
 }
 
